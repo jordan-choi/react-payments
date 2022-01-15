@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import RegisterCard from './pages/RegisterCard/RegisterCard';
+import CardListPage from './pages/CardListPage/CardListPage';
+import CardRegisterPage from './pages/CardRegisterPage/CardRegisterPage';
 
 const App = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/register-card' element={<RegisterCard />} />
+        <Route path='/' element={<CardListPage />} />
+        <Route path='/register-card' element={<CardRegisterPage />} />
       </Routes>
     </BrowserRouter>
   );

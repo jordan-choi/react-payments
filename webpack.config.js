@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = () => {
@@ -22,13 +23,10 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.(ts|tsx)$/,
+          test: /\.(ts|js)x?$/,
           include: path.resolve(__dirname, 'src'),
           use: {
-            loader: 'ts-loader',
-            options: {
-              configFile: path.resolve(__dirname, 'tsconfig.json'),
-            },
+            loader: 'babel-loader',
           },
           exclude: /node_modules/,
         },
@@ -40,6 +38,7 @@ module.exports = () => {
       ],
     },
     plugins: [
+      new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         template: 'public/index.html',
       }),

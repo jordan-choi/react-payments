@@ -1,12 +1,8 @@
 module.exports = {
   'presets': [
-    '@babel/preset-env',
-    [
-      '@babel/preset-react',
-      {
-        'runtime': 'automatic',
-      },
-    ],
+    ['@babel/preset-react', { 'runtime': 'automatic' }],
+    '@emotion/babel-preset-css-prop',
     '@babel/preset-typescript',
   ],
+  'plugins': ['babel-plugin-twin', 'babel-plugin-macros']
 }

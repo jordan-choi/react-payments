@@ -16,6 +16,7 @@
     "incremental": true,
     "sourceMap": true,
   },
+  "files": ["twin.d.ts"],
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }

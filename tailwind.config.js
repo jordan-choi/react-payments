@@ -15,9 +15,12 @@ module.exports = {
       gray6: '#383838',
       card: '#94dacd',
       cardchip: '#cbba64',
-      shadow: 'rgba(0, 0, 0, 0.25)',
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        default: '3px 3px 5px rgba(0, 0, 0, 0.25)',
+      },
+    },
   },
   plugins: [
     plugin(function ({ addBase }) {

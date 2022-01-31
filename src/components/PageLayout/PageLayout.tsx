@@ -5,5 +5,7 @@ interface PageLayoutProps {
 }
 
 export default function PageLayout({ children }: PageLayoutProps) {
-  return <div className="h-full py-[1.6rem] px-[2.4rem]">{children}</div>;
+  return (
+    <div className="h-full py-[1.6rem] px-[2.4rem] bg-white">{children}</div>
+  );
 }

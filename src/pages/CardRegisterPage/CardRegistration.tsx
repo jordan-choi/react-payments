@@ -1,24 +1,12 @@
 import { Link } from 'react-router-dom';
+import Card from '../../components/Card/Card';
 import Input from '../../components/Input/Input';
 import InputContainer from '../../components/InputContainer/InputContainer';
 
 const CardRegistration: React.FC = () => {
   return (
-    <div>
-      <div className="card-box">
-        <div className="empty-card">
-          <div className="card-top"></div>
-          <div className="card-middle">
-            <div className="small-card__chip"></div>
-          </div>
-          <div className="card-bottom">
-            <div className="card-bottom__info">
-              <span className="card-text">NAME</span>
-              <span className="card-text">MM / YY</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <>
+      <Card isEmpty={true} />
       <InputContainer inputTitle={'카드 번호'}>
         <Input type="text" />
         <Input type="text" />
@@ -58,7 +46,7 @@ const CardRegistration: React.FC = () => {
           <span className="button-text">다음</span>
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 export default CardRegistration;

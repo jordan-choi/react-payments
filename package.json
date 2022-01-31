@@ -7,7 +7,9 @@
   "scripts": {
     "prod": "NODE_ENV=production webpack serve",
     "dev": "NODE_ENV=development webpack serve",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "babelMacros": {
     "twin": {
@@ -28,6 +30,12 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@storybook/addon-actions": "^6.4.17",
+    "@storybook/addon-essentials": "^6.4.17",
+    "@storybook/addon-links": "^6.4.17",
+    "@storybook/builder-webpack5": "^6.4.17",
+    "@storybook/manager-webpack5": "^6.4.17",
+    "@storybook/react": "^6.4.17",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
@@ -40,6 +48,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-storybook": "^0.5.6",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.5.1",
     "style-loader": "^3.3.1",

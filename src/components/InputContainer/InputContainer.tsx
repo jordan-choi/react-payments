@@ -1,8 +1,6 @@
 import React from 'react';
 import tw from 'twin.macro';
 import styled from '@emotion/styled/macro';
-import { css } from '@emotion/core';
-import Input from '../Input/Input';
 
 interface InputContainerProps {
   inputTitle: string;

@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled/macro';
-import tw from 'twin.macro';
 
 interface PageLayoutProps {
   children?: JSX.Element | JSX.Element[];

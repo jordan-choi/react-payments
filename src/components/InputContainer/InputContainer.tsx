@@ -4,6 +4,8 @@ import styled from '@emotion/styled/macro';
 
 interface InputContainerProps {
   inputTitle: string;
+  inputStatus?: 'success' | 'error' | 'default';
+  errorMessage?: string;
   children?: JSX.Element[] | JSX.Element;
 }
 
@@ -17,14 +19,22 @@ const InputBox = styled.div([
   tw`flex items-center mt-1.5 text-gray2 rounded bg-gray0`,
 ]);
 
+const InputErrorMessage = styled.p([tw`text-red-600`]);
+
 export default function InputContainer({
   inputTitle,
+  inputStatus = 'default',
+  errorMessage,
   children,
 }: InputContainerProps) {
   return (
     <InputContainerWrapper>
       <InputTitle>{inputTitle}</InputTitle>
       <InputBox>{children}</InputBox>
+      {errorMessage &&
+        (inputStatus === 'success' ? null : (
+          <InputErrorMessage role="alert">{errorMessage}</InputErrorMessage>
+        ))}
     </InputContainerWrapper>
   );
 }

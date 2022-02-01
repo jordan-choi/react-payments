@@ -20,6 +20,23 @@ module.exports = {
       boxShadow: {
         default: '3px 3px 5px rgba(0, 0, 0, 0.25)',
       },
+      spacing: {
+        1.6: '0.4rem',
+        4.8: '1.2rem',
+        5.6: '1.4rem',
+        6.4: '1.6rem',
+        9.6: '2.4rem',
+        18: '4.5rem',
+        83.2: '20.8rem',
+      },
+      fontSize: {
+        4.8: '1.2rem',
+        5.6: '1.4rem',
+      },
+      lineHeight: {
+        5.6: '1.4rem',
+        6.4: '1.6rem',
+      },
     },
   },
   plugins: [

@@ -7,8 +7,10 @@ interface InputContainerProps {
   children?: JSX.Element[] | JSX.Element;
 }
 
+const InputContainerWrapper = styled.div([tw`mx-0 my-6.4`]);
+
 const InputTitle = styled.span([
-  tw`flex items-center mb-2 text-gray5 text-[1.2rem] leading-[1.4rem]`,
+  tw`flex items-center mb-2 text-gray5 text-4.8 leading-5.6`,
 ]);
 
 const InputBox = styled.div([
@@ -20,9 +22,9 @@ export default function InputContainer({
   children,
 }: InputContainerProps) {
   return (
-    <div className="mx-[1.6rem] my-0">
+    <InputContainerWrapper>
       <InputTitle>{inputTitle}</InputTitle>
       <InputBox>{children}</InputBox>
-    </div>
+    </InputContainerWrapper>
   );
 }

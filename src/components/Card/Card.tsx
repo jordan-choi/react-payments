@@ -14,12 +14,12 @@ const styles = {
   cssCardMiddle: css(tw`w-full h-full ml-12 flex items-center`),
   cssCardBottom: css(tw`w-full h-full flex flex-col items-center`),
   cssCardText: css(
-    tw`my-0 mx-[1.6rem] text-[1.4rem] leading-[1.6rem] align-middle font-normal`
+    tw`my-0 mx-6.4 text-5.6 leading-6.4 align-middle font-normal`
   ),
 };
 
 const CardWrapper = styled.div([
-  tw`flex flex-col items-center justify-center w-[20.8rem] h-52`,
+  tw`flex flex-col items-center justify-center w-83.2 h-52`,
 ]);
 
 const EmptyCardWrapper = tw(

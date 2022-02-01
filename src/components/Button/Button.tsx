@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import tw from 'twin.macro';
-import { css, cx } from '@emotion/css';
+import styled from '@emotion/styled/macro';
+import { cx } from '@emotion/css';
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonText: string;
+  buttonCSSstyle?: string;
 }
 
-const styles = {
-  cssButtonBox: css(tw`w-full text-right`),
-  cssButtonText: css(tw`mr-4`),
-};
+const ButtonBox = styled.div([tw`relative w-full h-8`]);
 
-export default function Button({ buttonText }: ButtonProps) {
+const StyledButton = styled.button([
+  tw`flex items-center justify-center border-none outline-none bg-transparent px-4 py-2`,
+]);
+
+export default function Button({ buttonText, buttonCSSstyle }: ButtonProps) {
   return (
-    <div className={cx(styles.cssButtonBox)}>
-      <span className={cx(styles.cssButtonText)}>{buttonText}</span>
-    </div>
+    <ButtonBox>
+      <StyledButton className={cx(buttonCSSstyle)}>
+        <span>{buttonText}</span>
+      </StyledButton>
+    </ButtonBox>
   );
 }

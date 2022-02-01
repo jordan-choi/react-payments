@@ -13,7 +13,7 @@ interface IForm {
   dueDate: Array<string>;
   name?: string;
   securityCode: string;
-  password: string;
+  password: number[];
 }
 
 const CardRegistration: React.FC = () => {
@@ -23,10 +23,10 @@ const CardRegistration: React.FC = () => {
       dueDate: [],
       name: '',
       securityCode: '',
-      password: '',
+      password: [],
     });
+
   const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
     console.log(cardNumber, dueDate, name, securityCode, password);
   };
 
@@ -38,6 +38,7 @@ const CardRegistration: React.FC = () => {
         errorMessage="Invalid Card Number"
       >
         <Input
+          tw="w-full"
           underline={false}
           type="text"
           name="card-number-0"
@@ -49,6 +50,7 @@ const CardRegistration: React.FC = () => {
           onChange={onChange}
         />
         <Input
+          tw="w-full"
           underline={false}
           type="text"
           name="card-number-1"
@@ -59,6 +61,7 @@ const CardRegistration: React.FC = () => {
           onChange={onChange}
         />
         <Input
+          tw="w-full"
           underline={false}
           type="password"
           name="card-number-2"
@@ -69,6 +72,7 @@ const CardRegistration: React.FC = () => {
           onChange={onChange}
         />
         <Input
+          tw="w-full"
           underline={false}
           type="password"
           name="card-number-3"
@@ -80,8 +84,9 @@ const CardRegistration: React.FC = () => {
         />
       </InputContainer>
 
-      <InputContainer inputTitle={'만료일'}>
+      <InputContainer inputTitle={'만료일'} inputBoxCSSstyle={css(tw`w-1/2`)}>
         <Input
+          tw="w-full"
           underline={false}
           type="text"
           placeholder="MM"
@@ -93,6 +98,7 @@ const CardRegistration: React.FC = () => {
           onChange={onChange}
         />
         <Input
+          tw="w-full"
           underline={false}
           type="text"
           placeholder="YY"
@@ -107,6 +113,7 @@ const CardRegistration: React.FC = () => {
 
       <InputContainer inputTitle={'카드 소유자 이름(선택)'}>
         <Input
+          tw="w-full"
           underline={false}
           type="text"
           placeholder="카드에 표시된 이름과 동일하게 입력하세요."
@@ -117,10 +124,10 @@ const CardRegistration: React.FC = () => {
         />
       </InputContainer>
 
-      <InputContainer inputTitle={'보안코드(CVC/CVV)'}>
+      <InputContainer inputTitle={'보안코드(CVC/CVV)'} inputBox={false}>
         <Input
+          tw="w-1/4"
           underline={false}
-          className="w-25"
           type="password"
           name="security-code"
           value={securityCode}
@@ -131,10 +138,10 @@ const CardRegistration: React.FC = () => {
         />
       </InputContainer>
 
-      <InputContainer inputTitle={'카드 비밀번호'}>
+      <InputContainer inputTitle={'카드 비밀번호'} inputBox={false}>
         <Input
           underline={false}
-          className="w-15"
+          tw="w-3/20 mr-3"
           type="password"
           name="card-password-0"
           value={password[0]}
@@ -145,7 +152,7 @@ const CardRegistration: React.FC = () => {
         />
         <Input
           underline={false}
-          className="w-15"
+          tw="w-3/20 mr-3"
           type="password"
           name="card-password-1"
           value={password[1]}
@@ -156,7 +163,7 @@ const CardRegistration: React.FC = () => {
         />
         <Input
           underline={false}
-          className="w-15"
+          tw="w-3/20 mr-3"
           type="password"
           name="card-password-2"
           value={password[2]}
@@ -167,7 +174,7 @@ const CardRegistration: React.FC = () => {
         />
         <Input
           underline={false}
-          className="w-15"
+          tw="w-3/20"
           type="password"
           name="card-password-3"
           value={password[4]}
@@ -178,14 +185,12 @@ const CardRegistration: React.FC = () => {
         />
       </InputContainer>
 
-      <Link to="completed">
-        <Button
-          type="submit"
-          aria-label="submit input"
-          buttonText="다음"
-          buttonCSSstyle={css(tw`absolute right-0 top-0`)}
-        />
-      </Link>
+      <Button
+        type="submit"
+        aria-label="submit input"
+        buttonText="다음"
+        buttonCSSstyle={css(tw`absolute right-0 top-0`)}
+      />
     </form>
   );
 };

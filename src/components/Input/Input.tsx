@@ -7,7 +7,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const InputBasic = styled.input([
-  tw`w-full h-18 bg-gray0 text-center outline-none border-none border-gray3 rounded`,
+  tw`h-18 bg-gray0 text-center outline-none border-none border-gray3 rounded`,
 ]);
 
 const InputUnderline = styled.input([

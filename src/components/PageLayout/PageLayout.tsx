@@ -2,7 +2,7 @@ import React from 'react';
 import tw from 'twin.macro';
 import { css, cx } from '@emotion/css';
 interface PageLayoutProps {
-  children?: JSX.Element | JSX.Element[];
+  children?: JSX.Element | Array<JSX.Element>;
 }
 
 const styles = {

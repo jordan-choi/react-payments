@@ -6,7 +6,7 @@ interface InputContainerProps {
   inputTitle: string;
   inputStatus?: 'success' | 'error' | 'default';
   errorMessage?: string;
-  children?: JSX.Element[] | JSX.Element;
+  children?: Array<JSX.Element> | JSX.Element;
 }
 
 const InputContainerWrapper = styled.div([tw`mx-0 my-6.4`]);

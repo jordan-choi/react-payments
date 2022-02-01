@@ -1,11 +1,14 @@
 import React from 'react';
 import tw from 'twin.macro';
 import styled from '@emotion/styled/macro';
+import { cx } from '@emotion/css';
 
 interface InputContainerProps {
   inputTitle: string;
   inputStatus?: 'success' | 'error' | 'default';
   errorMessage?: string;
+  inputBox?: boolean;
+  inputBoxCSSstyle?: string;
   children?: Array<JSX.Element> | JSX.Element;
 }
 
@@ -25,12 +28,17 @@ export default function InputContainer({
   inputTitle,
   inputStatus = 'default',
   errorMessage,
+  inputBox = true,
+  inputBoxCSSstyle,
   children,
 }: InputContainerProps) {
   return (
     <InputContainerWrapper>
       <InputTitle>{inputTitle}</InputTitle>
-      <InputBox>{children}</InputBox>
+      {inputBox && (
+        <InputBox className={cx(inputBoxCSSstyle)}>{children}</InputBox>
+      )}
+      {!inputBox && children}
       {errorMessage &&
         (inputStatus === 'success' ? null : (
           <InputErrorMessage role="alert">{errorMessage}</InputErrorMessage>

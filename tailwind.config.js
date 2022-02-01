@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   darkMode: false,
@@ -15,6 +16,7 @@ module.exports = {
       gray6: '#383838',
       card: '#94dacd',
       cardchip: '#cbba64',
+      ...colors,
     },
     extend: {
       boxShadow: {

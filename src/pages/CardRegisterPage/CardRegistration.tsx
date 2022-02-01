@@ -1,7 +1,9 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import Input from '../../components/Input/Input';
 import InputContainer from '../../components/InputContainer/InputContainer';
+import Button from '../../components/Button/Button';
 
 const CardRegistration: React.FC = () => {
   return (
@@ -41,11 +43,9 @@ const CardRegistration: React.FC = () => {
         <Input className="w-15" type="password" />
       </InputContainer>
 
-      <div className="button-box">
-        <Link to="completed">
-          <span className="button-text">다음</span>
-        </Link>
-      </div>
+      <Link to="completed">
+        <Button buttonText="다음" />
+      </Link>
     </>
   );
 };

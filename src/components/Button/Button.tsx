@@ -14,10 +14,14 @@ const StyledButton = styled.button([
   tw`flex items-center justify-center border-none outline-none bg-transparent px-4 py-2`,
 ]);
 
-export default function Button({ buttonText, buttonCSSstyle }: ButtonProps) {
+export default function Button({
+  buttonText,
+  buttonCSSstyle,
+  ...props
+}: ButtonProps) {
   return (
     <ButtonBox>
-      <StyledButton className={cx(buttonCSSstyle)}>
+      <StyledButton onClick={props.onClick} className={cx(buttonCSSstyle)}>
         <span>{buttonText}</span>
       </StyledButton>
     </ButtonBox>

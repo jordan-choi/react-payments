@@ -15,7 +15,7 @@ const CardRegistration: React.FC = () => {
       >
         <Input
           underline={false}
-          type="text"
+          type="number"
           name="card-number-0"
           required
           aria-required
@@ -24,7 +24,7 @@ const CardRegistration: React.FC = () => {
         />
         <Input
           underline={false}
-          type="text"
+          type="number"
           name="card-number-1"
           required
           aria-required
@@ -51,7 +51,7 @@ const CardRegistration: React.FC = () => {
       <InputContainer inputTitle={'만료일'}>
         <Input
           underline={false}
-          type="text"
+          type="number"
           placeholder="MM"
           name="due-date-month"
           required
@@ -60,7 +60,7 @@ const CardRegistration: React.FC = () => {
         />
         <Input
           underline={false}
-          type="text"
+          type="number"
           placeholder="YY"
           name="due-date-year"
           required

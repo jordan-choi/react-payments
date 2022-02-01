@@ -1,11 +1,14 @@
 import React from 'react';
-
+import tw from 'twin.macro';
+import { css, cx } from '@emotion/css';
 interface PageLayoutProps {
   children?: JSX.Element | JSX.Element[];
 }
 
+const styles = {
+  cssPageLayout: css(tw`h-full py-6.4 px-9.6 bg-white`),
+};
+
 export default function PageLayout({ children }: PageLayoutProps) {
-  return (
-    <div className="h-full py-[1.6rem] px-[2.4rem] bg-white">{children}</div>
-  );
+  return <div className={cx(styles.cssPageLayout)}>{children}</div>;
 }

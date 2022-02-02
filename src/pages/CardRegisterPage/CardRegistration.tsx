@@ -1,4 +1,4 @@
-import React, { FormEventHandler } from 'react';
+import React, { useCallback, FormEventHandler } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 import { css } from '@emotion/css';
@@ -20,6 +20,11 @@ interface IForm {
 
 const CardRegistration: React.FC = () => {
   const navigate = useNavigate();
+  const onClick = useCallback(
+    () => navigate('completed', { replace: true }),
+    [navigate]
+  );
+
   const [{ cardNumber, dueDate, name, securityCode, password }, onChange] =
     useInputs<IForm>({
       cardNumber: [],
@@ -258,21 +263,20 @@ const CardRegistration: React.FC = () => {
           />
         </InputContainer>
 
-        <Link to="completed">
-          <Button
-            type="submit"
-            disabled={
-              !isValidCardNumber ||
-              !isValidDueDate ||
-              !isValidName ||
-              !isValidSecurityCode ||
-              !isValidPassword
-            }
-            aria-label="submit input"
-            buttonText="다음"
-            buttonCSSstyle={css(tw`absolute right-0 top-0`)}
-          />
-        </Link>
+        <Button
+          type="submit"
+          disabled={
+            !isValidCardNumber ||
+            !isValidDueDate ||
+            !isValidName ||
+            !isValidSecurityCode ||
+            !isValidPassword
+          }
+          onClick={onClick}
+          aria-label="submit input"
+          buttonText="다음"
+          buttonCSSstyle={css(tw`absolute right-0 top-0`)}
+        />
       </form>
     </>
   );

@@ -9,6 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const Basic = Template.bind({});
+export const EmptyCard = Template.bind({});
+EmptyCard.args = { isEmpty: true };
 
-Basic.args = {};
+export const SmallCard = Template.bind({});
+SmallCard.args = { isEmpty: false, cardSize: 'small' };

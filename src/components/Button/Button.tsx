@@ -21,7 +21,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <ButtonBox>
-      <StyledButton onClick={props.onClick} className={cx(buttonCSSstyle)}>
+      <StyledButton {...props} className={cx(buttonCSSstyle)}>
         <span>{buttonText}</span>
       </StyledButton>
     </ButtonBox>

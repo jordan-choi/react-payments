@@ -1,5 +1,5 @@
 import React, { useCallback, FormEventHandler } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 import { css } from '@emotion/css';
 import Card from '../../components/Card/Card';
@@ -11,10 +11,17 @@ import useInputs from '../../hooks/useInputs';
 import REGEXP from '../../../constant/regexp';
 
 interface IForm {
-  cardNumber: Array<string>;
-  dueDate: Array<string>;
+  cardNumber0: string;
+  cardNumber1: string;
+  cardNumber2: string;
+  cardNumber3: string;
+  dueDateMM: string;
+  dueDateYY: string;
   securityCode: string;
-  password: string;
+  password0: string;
+  password1: string;
+  password2: string;
+  password3: string;
   name?: string;
 }
 
@@ -25,33 +32,49 @@ const CardRegistration: React.FC = () => {
     [navigate]
   );
 
-  const [{ cardNumber, dueDate, name, securityCode, password }, onChange] =
-    useInputs<IForm>({
-      cardNumber: [],
-      dueDate: [],
-      name: '',
-      securityCode: '',
-      password: '',
-    });
+  const [
+    {
+      cardNumber0,
+      cardNumber1,
+      cardNumber2,
+      cardNumber3,
+      dueDateMM,
+      dueDateYY,
+      name,
+      securityCode,
+      password0,
+      password1,
+      password2,
+      password3,
+    },
+    onChange,
+  ] = useInputs<IForm>({
+    cardNumber0: '',
+    cardNumber1: '',
+    cardNumber2: '',
+    cardNumber3: '',
+    dueDateMM: '',
+    dueDateYY: '',
+    name: '',
+    securityCode: '',
+    password0: '',
+    password1: '',
+    password2: '',
+    password3: '',
+  });
 
   const isValidCardNumber = React.useMemo(
     () =>
-      REGEXP.ONLYNUMBER.test(cardNumber[0]) &&
-      REGEXP.ONLYNUMBER.test(cardNumber[1]) &&
-      REGEXP.ONLYNUMBER.test(cardNumber[2]) &&
-      REGEXP.ONLYNUMBER.test(cardNumber[3]),
-    [cardNumber]
+      REGEXP.ONLYNUMBER.test(cardNumber0) &&
+      REGEXP.ONLYNUMBER.test(cardNumber1) &&
+      REGEXP.ONLYNUMBER.test(cardNumber2) &&
+      REGEXP.ONLYNUMBER.test(cardNumber3),
+    [cardNumber0, cardNumber1, cardNumber2, cardNumber3]
   );
 
   const isValidDueDate = React.useMemo(
-    () =>
-      REGEXP.ONLYNUMBER.test(dueDate[0]) && REGEXP.ONLYNUMBER.test(dueDate[1]),
-    [dueDate]
-  );
-
-  const isValidName = React.useMemo(
-    () => name && REGEXP.USERNAME.test(name),
-    [name]
+    () => REGEXP.MONTH.test(dueDateMM) && REGEXP.ONLYNUMBER.test(dueDateYY),
+    [dueDateMM, dueDateYY]
   );
 
   const isValidSecurityCode = React.useMemo(
@@ -60,19 +83,36 @@ const CardRegistration: React.FC = () => {
   );
 
   const isValidPassword = React.useMemo(
-    () => REGEXP.PASSWORD.test(password),
-    [password]
+    () =>
+      REGEXP.ONLYNUMBER.test(password0) &&
+      REGEXP.ONLYNUMBER.test(password1) &&
+      REGEXP.ONLYNUMBER.test(password2) &&
+      REGEXP.ONLYNUMBER.test(password3),
+    [password0, password1, password2, password3]
   );
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    console.log(cardNumber, dueDate, name, securityCode, password);
+    event.preventDefault();
   };
 
   return (
     <>
       <Header headerTitle="카드 추가" backButtonOnclick={() => navigate(-1)} />
       <form onSubmit={onSubmit}>
-        <Card isEmpty={true} />
+        {!!cardNumber0 || !!dueDateMM || !!dueDateYY || !!name ? (
+          <Card
+            isEmpty={false}
+            cardSize="small"
+            cardBottomNumber={`${cardNumber0 || ''} - ${cardNumber1 || ''} - ${
+              (cardNumber2 && cardNumber2.replace(/./g, '*')) || ''
+            } - ${(cardNumber3 && cardNumber3.replace(/./g, '*')) || ''}`}
+            cardBottomName={name || 'NAME'}
+            cardBottomDuedate={`${dueDateMM || 'MM'} / ${dueDateYY || 'YY'}`}
+          />
+        ) : (
+          <Card isEmpty={true} />
+        )}
+
         <InputContainer
           inputTitle={'카드 번호'}
           inputStatus={isValidCardNumber ? 'success' : 'error'}
@@ -83,8 +123,8 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="text"
             id="card-number-0"
-            name="cardNumber[0]"
-            value={cardNumber[0]}
+            name="cardNumber0"
+            value={cardNumber0}
             required
             aria-required
             aria-label="Card number input"
@@ -97,8 +137,8 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="text"
             id="card-number-1"
-            name="cardNumber[1]"
-            value={cardNumber[1]}
+            name="cardNumber1"
+            value={cardNumber1}
             required
             aria-required
             aria-label="Card number input"
@@ -110,8 +150,8 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="password"
             id="card-number-2"
-            name="cardNumber[2]"
-            value={cardNumber[2]}
+            name="cardNumber2"
+            value={cardNumber2}
             required
             aria-required
             aria-label="Card number input"
@@ -123,8 +163,8 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="password"
             id="card-number-3"
-            name="cardNumber[3]"
-            value={cardNumber[3]}
+            name="cardNumber3"
+            value={cardNumber3}
             required
             aria-required
             aria-label="Card number input"
@@ -145,8 +185,8 @@ const CardRegistration: React.FC = () => {
             type="text"
             placeholder="MM"
             id="due-date-month"
-            name="dueDate[0]"
-            value={dueDate[0]}
+            name="dueDateMM"
+            value={dueDateMM}
             required
             aria-required
             aria-label="Due date month"
@@ -159,8 +199,8 @@ const CardRegistration: React.FC = () => {
             type="text"
             placeholder="YY"
             id="due-date-year"
-            name="dueDate[1]"
-            value={dueDate[1]}
+            name="dueDateYY"
+            value={dueDateYY}
             required
             aria-required
             aria-label="Due date year"
@@ -171,8 +211,8 @@ const CardRegistration: React.FC = () => {
 
         <InputContainer
           inputTitle={'카드 소유자 이름(선택)'}
-          inputStatus={isValidName ? 'success' : 'error'}
-          errorMessage="Invalid Name"
+          inputStatus={'default'}
+          errorMessage={`${(name && name.length) || 0}자 / 30자`}
         >
           <Input
             tw="w-full"
@@ -183,6 +223,7 @@ const CardRegistration: React.FC = () => {
             name="name"
             value={name}
             aria-label="Name"
+            maxLength={30}
             onChange={onChange}
           />
         </InputContainer>
@@ -214,8 +255,8 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20 mr-3"
             type="password"
             id="card-password-0"
-            name="password[0]"
-            value={password[0]}
+            name="password0"
+            value={password0}
             required
             aria-required
             aria-label="Card password"
@@ -227,8 +268,8 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20 mr-3"
             type="password"
             id="card-password-1"
-            name="password[1]"
-            value={password[1]}
+            name="password1"
+            value={password1}
             required
             aria-required
             aria-label="Card password"
@@ -240,8 +281,8 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20 mr-3"
             type="password"
             id="card-password-2"
-            name="password[2]"
-            value={password[2]}
+            name="password2"
+            value={password2}
             required
             aria-required
             aria-label="Card password"
@@ -253,8 +294,8 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20"
             type="password"
             id="card-password-3"
-            name="password[3]"
-            value={password[3]}
+            name="password3"
+            value={password3}
             required
             aria-required
             aria-label="Card password"
@@ -268,7 +309,6 @@ const CardRegistration: React.FC = () => {
           disabled={
             !isValidCardNumber ||
             !isValidDueDate ||
-            !isValidName ||
             !isValidSecurityCode ||
             !isValidPassword
           }

@@ -78,7 +78,7 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="text"
             id="card-number-0"
-            name="card-number"
+            name="cardNumber[0]"
             value={cardNumber[0]}
             required
             aria-required
@@ -92,7 +92,7 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="text"
             id="card-number-1"
-            name="card-number"
+            name="cardNumber[1]"
             value={cardNumber[1]}
             required
             aria-required
@@ -105,7 +105,7 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="password"
             id="card-number-2"
-            name="card-number"
+            name="cardNumber[2]"
             value={cardNumber[2]}
             required
             aria-required
@@ -118,7 +118,7 @@ const CardRegistration: React.FC = () => {
             underline={false}
             type="password"
             id="card-number-3"
-            name="card-number"
+            name="cardNumber[3]"
             value={cardNumber[3]}
             required
             aria-required
@@ -140,7 +140,7 @@ const CardRegistration: React.FC = () => {
             type="text"
             placeholder="MM"
             id="due-date-month"
-            name="due-date-month"
+            name="dueDate[0]"
             value={dueDate[0]}
             required
             aria-required
@@ -154,7 +154,7 @@ const CardRegistration: React.FC = () => {
             type="text"
             placeholder="YY"
             id="due-date-year"
-            name="due-date-year"
+            name="dueDate[1]"
             value={dueDate[1]}
             required
             aria-required
@@ -193,7 +193,7 @@ const CardRegistration: React.FC = () => {
             tw="w-1/4"
             type="password"
             id="security-code"
-            name="security-code"
+            name="securityCode"
             value={securityCode}
             required
             aria-required
@@ -209,7 +209,7 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20 mr-3"
             type="password"
             id="card-password-0"
-            name="card-password"
+            name="password[0]"
             value={password[0]}
             required
             aria-required
@@ -222,7 +222,7 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20 mr-3"
             type="password"
             id="card-password-1"
-            name="card-password"
+            name="password[1]"
             value={password[1]}
             required
             aria-required
@@ -235,7 +235,7 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20 mr-3"
             type="password"
             id="card-password-2"
-            name="card-password"
+            name="password[2]"
             value={password[2]}
             required
             aria-required
@@ -248,8 +248,8 @@ const CardRegistration: React.FC = () => {
             tw="w-3/20"
             type="password"
             id="card-password-3"
-            name="card-password"
-            value={password[4]}
+            name="password[3]"
+            value={password[3]}
             required
             aria-required
             aria-label="Card password"

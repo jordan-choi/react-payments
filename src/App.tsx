@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CardListPage from './pages/CardListPage/CardListPage';
 import CardRegisterPage from './pages/CardRegisterPage/CardRegisterPage';

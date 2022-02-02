@@ -1,5 +1,5 @@
 import React, { FormEventHandler } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import tw from 'twin.macro';
 import { css } from '@emotion/css';
 import Card from '../../components/Card/Card';
@@ -19,6 +19,7 @@ interface IForm {
 }
 
 const CardRegistration: React.FC = () => {
+  const navigate = useNavigate();
   const [{ cardNumber, dueDate, name, securityCode, password }, onChange] =
     useInputs<IForm>({
       cardNumber: [],
@@ -64,7 +65,7 @@ const CardRegistration: React.FC = () => {
 
   return (
     <>
-      <Header headerTitle="카드 추가" />
+      <Header headerTitle="카드 추가" backButtonOnclick={() => navigate(-1)} />
       <form onSubmit={onSubmit}>
         <Card isEmpty={true} />
         <InputContainer

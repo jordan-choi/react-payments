@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 const BackButtonSVG = () => (
   <svg
@@ -16,9 +16,14 @@ const BackButtonSVG = () => (
   </svg>
 );
 
-export default function BackButton() {
+export default function BackButton({
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button tw="flex items-center justify-center border-none outline-none bg-transparent hover:cursor-pointer">
+    <button
+      {...props}
+      tw="flex items-center justify-center border-none outline-none bg-transparent hover:cursor-pointer"
+    >
       <BackButtonSVG />
     </button>
   );

@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonBox = styled.div([tw`relative w-full h-8`]);
 
 const StyledButton = styled.button([
-  tw`flex items-center justify-center border-none outline-none bg-transparent px-4 py-2`,
+  tw`flex items-center justify-center border-none outline-none bg-transparent px-4 py-2 hover:cursor-pointer`,
 ]);
 
 export default function Button({

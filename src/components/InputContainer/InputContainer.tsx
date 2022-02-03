@@ -4,10 +4,10 @@ import styled from '@emotion/styled/macro';
 import { cx } from '@emotion/css';
 
 interface InputContainerProps {
-  inputTitle: string;
+  inputTitle?: string;
   inputStatus?: 'success' | 'error' | 'default';
   errorMessage?: string;
-  inputBox?: boolean;
+  inputBox: boolean;
   inputBoxCSSstyle?: string;
   children?: Array<JSX.Element> | JSX.Element;
 }
@@ -34,7 +34,7 @@ export default function InputContainer({
 }: InputContainerProps) {
   return (
     <InputContainerWrapper>
-      <InputTitle>{inputTitle}</InputTitle>
+      {inputTitle && <InputTitle>{inputTitle}</InputTitle>}
       {inputBox && (
         <InputBox className={cx(inputBoxCSSstyle)}>{children}</InputBox>
       )}

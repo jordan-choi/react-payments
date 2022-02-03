@@ -117,6 +117,7 @@ const CardRegistration: React.FC = () => {
           inputTitle={'카드 번호'}
           inputStatus={isValidCardNumber ? 'success' : 'error'}
           errorMessage="Invalid Card Number"
+          inputBox
         >
           <Input
             tw="w-full"
@@ -177,6 +178,7 @@ const CardRegistration: React.FC = () => {
           inputTitle={'만료일'}
           inputStatus={isValidDueDate ? 'success' : 'error'}
           errorMessage="Invalid Due date"
+          inputBox
           inputBoxCSSstyle={css(tw`w-1/2`)}
         >
           <Input
@@ -213,6 +215,7 @@ const CardRegistration: React.FC = () => {
           inputTitle={'카드 소유자 이름(선택)'}
           inputStatus={'default'}
           errorMessage={`${(name && name.length) || 0}자 / 30자`}
+          inputBox
         >
           <Input
             tw="w-full"

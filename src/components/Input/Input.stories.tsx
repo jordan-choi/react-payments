@@ -15,3 +15,10 @@ Basic.args = {
   type: 'text',
   placeholder: 'basic',
 };
+
+export const Underline = Template.bind({});
+Underline.args = {
+  type: 'text',
+  placeholder: 'underline',
+  underline: true,
+};
